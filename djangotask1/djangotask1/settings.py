@@ -4,7 +4,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    SECRET_KEY = 'django-insecure-tp(12123213123123123123123'
+
 DEBUG = str(os.environ.get('DEBUG')) == '1'
+if not DEBUG:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
