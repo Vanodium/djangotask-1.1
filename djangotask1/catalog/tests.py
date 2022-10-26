@@ -1,3 +1,17 @@
-# from django.test import TestCase
+from django.test import Client, TestCase
 
-# Create your tests here.
+
+class StaticURLTestsCatalog(TestCase):
+    def test_catalog(self):
+        response = Client().get('/catalog/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_catalog_item(self):
+        response = Client().get('/catalog/123')
+        self.assertEqual(response.status_code, 200)
+
+        response = Client().get('/catalog/-123')
+        self.assertEqual(response.status_code, 404)
+
+        response = Client().get('/catalog/string')
+        self.assertEqual(response.status_code, 404)

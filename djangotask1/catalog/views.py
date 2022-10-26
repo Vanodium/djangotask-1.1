@@ -6,4 +6,4 @@ def item_list(request):
 
 
 def item_detail(request, pk: int):
-    return HttpResponse('Подробно элемент №' + str(pk))
+    return HttpResponse(f'Подробно элемент №{pk}')
