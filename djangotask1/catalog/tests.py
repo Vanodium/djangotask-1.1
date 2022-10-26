@@ -13,6 +13,9 @@ class StaticURLTestsCatalog(TestCase):
         response = Client().get('/catalog/123/')
         self.assertEqual(response.status_code, 200)
 
+        response = Client().get('/catalog/i-want-to-rest-finally-123/')
+        self.assertEqual(response.status_code, 404)
+
         response = Client().get('/catalog/-123')
         self.assertEqual(response.status_code, 404)
 
