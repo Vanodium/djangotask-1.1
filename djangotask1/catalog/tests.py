@@ -8,6 +8,9 @@ class StaticURLTestsCatalog(TestCase):
 
     def test_catalog_item(self):
         response = Client().get('/catalog/123')
+        self.assertEqual(response.status_code, 301)
+
+        response = Client().get('/catalog/123/')
         self.assertEqual(response.status_code, 200)
 
         response = Client().get('/catalog/-123')
