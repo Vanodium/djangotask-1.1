@@ -10,7 +10,7 @@ class StaticURLTestsCatalog(TestCase):
         response = Client().get('/catalog/123')
         self.assertEqual(response.status_code, 301)
 
-        response = Client().get('/catalog/123/')
+        response = Client().get('/catalog/10/')
         self.assertEqual(response.status_code, 200)
 
         response = Client().get('/catalog/i-want-to-rest-finally-123/')

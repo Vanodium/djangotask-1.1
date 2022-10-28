@@ -3,5 +3,5 @@ from catalog import views
 
 urlpatterns = [
     path('', views.item_list),
-    re_path(r'^(?P<pk>\d*[1-9])/$', views.item_detail)
+    re_path(r'^(?P<pk>[1-9][0-9]*?)/$', views.item_detail)
 ]
