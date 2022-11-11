@@ -1,3 +1,5 @@
 Django==3.2
 django-dotenv==1.4.2
 Pillow==9.3.0
+django-cleanup==6.0.0
+sorl-thumbnail==22.3
