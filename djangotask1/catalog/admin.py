@@ -3,10 +3,10 @@ from .models import Tag, Category, Item
 
 admin.site.register(Tag)
 admin.site.register(Category)
-admin.site.register(Item)
+# admin.site.register(Item)
 
 
-# @admin.register(Item)
+@admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = (
         'name',

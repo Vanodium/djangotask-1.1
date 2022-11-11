@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils.safestring import mark_safe
+from sorl.thumbnail import get_thumbnail
+
 from .validators import validate_desc, validate_slug, validate_weight
 
 
@@ -24,3 +27,24 @@ class Item(models.Model):
     category = models.ForeignKey(
         'Category', on_delete=models.DO_NOTHING, null=True)
     tags = models.ManyToManyField('Tag')
+
+    class Meta:
+        verbose_name = 'товар'
+        verbose_name = 'товары'
+        default_related_name = 'items'
+
+    upload = models.ImageField(upload_to='uploads/%Y/%m', default='nothing')
+
+    @property
+    def get_img(self):
+        return get_thumbnail(self.upload, '300x300', crop='center', quality=51)
+
+    def image_tmb(self):
+        if self.upload:
+            return mark_safe(
+                f'<img src="{self.get_img.url}">'
+            )
+        return 'Нет изображения'
+
+    image_tmb.short_description = 'превью'
+    image_tmb.allow_tags = True
