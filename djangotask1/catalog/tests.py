@@ -1,6 +1,6 @@
 from django.test import Client, TestCase
 
-from .models import Category, Item, Tag
+from .models import Category, Tag  # , Item
 
 
 class StaticURLTestsCatalog(TestCase):
@@ -40,16 +40,16 @@ class ModelsTest(TestCase):
                                      slug='test-tag-slug'
                                      )
 
-    def test_able_create_one_letter(self):
-        item_count = Item.objects.count()
+    # def test_able_create_one_letter(self):
+    #     item_count = Item.objects.count()
 
-        # with self.assertRaises(ValidationError):
-        self.item = Item(name='Тест айтэм',
-                         category=self.category,
-                         text='test превосходно'
-                         )
-        self.item.full_clean()
-        self.item.save()
-        self.item.tags.add(self.tag)
+    #     # with self.assertRaises(ValidationError):
+    #     self.item = Item(name='Тест айтэм',
+    #                      category=self.category,
+    #                      text='test превосходно',                       
+    #                      )
+    #     self.item.full_clean()
+    #     self.item.save()
+    #     self.item.tags.add(self.tag)
 
-        self.assertEqual(Item.objects.count(), item_count + 1)
+    #     self.assertEqual(Item.objects.count(), item_count + 1)
