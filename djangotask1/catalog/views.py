@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from catalog.models import Item
+from catalog import urls
 
 
 def item_list(request):
@@ -8,7 +9,7 @@ def item_list(request):
     context = {
         'items': items
     }
-    return render(request, 'catalog/index.html', context)
+    return render(request, urls.catalog_template_path, context)
 
 
 def item_detail(request, pk: int):

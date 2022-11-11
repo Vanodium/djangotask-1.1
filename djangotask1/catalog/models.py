@@ -26,6 +26,8 @@ class Item(models.Model):
     text = models.TextField(default='your desc', validators=[validate_desc])
     category = models.ForeignKey(
         'Category', on_delete=models.DO_NOTHING, null=True)
+    images = models.ForeignKey(
+        'DescriptionImages', on_delete=models.CASCADE, null=True)
     tags = models.ManyToManyField('Tag')
 
     class Meta:
@@ -48,3 +50,8 @@ class Item(models.Model):
 
     image_tmb.short_description = 'превью'
     image_tmb.allow_tags = True
+
+
+class DescriptionImages(models.Model):
+    is_published = models.BooleanField(default=True)
+    pictures = models.ImageField(upload_to='uploads/%Y/%m', default='nothing')

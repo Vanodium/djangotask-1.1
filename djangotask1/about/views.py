@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from about import urls
 
 
 def description(request):
-    template_name = 'about/index.html'
-    return render(request, template_name)
+    return render(request, urls.about_template_path)

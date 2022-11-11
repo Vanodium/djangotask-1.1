@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Tag, Category, Item
+from .models import Tag, Category, Item, DescriptionImages
 
 admin.site.register(Tag)
 admin.site.register(Category)
-# admin.site.register(Item)
+admin.site.register(DescriptionImages)
 
 
 @admin.register(Item)
