@@ -20,15 +20,15 @@
             {% with request.resolver_match.view_name as view_name %}
                 {% if view_name == 'homepage:home' %}
                 <a class="nav-item nav-link active" href="{% url 'homepage:home' %}">На главную</a>
-                <a class="nav-item nav-link" href="{% url 'catalog:item_detail' %}">Список товаров</a>
+                <a class="nav-item nav-link" href="{% url 'catalog:item_list' %}">Список товаров</a>
                 <a class="nav-item nav-link" href="{% url 'about:description' %}">О проекте</a>
-                {% elif view_name == 'catalog:item_detail' %}
+                {% elif view_name == 'catalog:item_list' %}
                 <a class="nav-item nav-link" href="{% url 'homepage:home' %}">На главную</a>
-                <a class="nav-item nav-link active" href="{% url 'catalog:item_detail' %}">Список товаров</a>
+                <a class="nav-item nav-link active" href="{% url 'catalog:item_list' %}">Список товаров</a>
                 <a class="nav-item nav-link" href="{% url 'about:description' %}">О проекте</a>
                 {% else %}
                 <a class="nav-item nav-link" href="{% url 'homepage:home' %}">На главную</a>
-                <a class="nav-item nav-link" href="{% url 'catalog:item_detail' %}">Список товаров</a>
+                <a class="nav-item nav-link" href="{% url 'catalog:item_list' %}">Список товаров</a>
                 <a class="nav-item nav-link active" href="{% url 'about:description' %}">О проекте</a>
                 {% endif %}
             {% endwith %}
