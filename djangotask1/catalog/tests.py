@@ -46,7 +46,7 @@ class ModelsTest(TestCase):
     #     # with self.assertRaises(ValidationError):
     #     self.item = Item(name='Тест айтэм',
     #                      category=self.category,
-    #                      text='test превосходно',                       
+    #                      text='test превосходно',
     #                      )
     #     self.item.full_clean()
     #     self.item.save()
