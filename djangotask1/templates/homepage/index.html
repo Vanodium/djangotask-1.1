@@ -1,8 +1,16 @@
-{% extends "base.html" %}
-
-{% load static %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  {% extends "base.html" %}
+  {% load static %}
+  {% block content %}
+  <link rel="stylesheet" href="{% static 'css/homepage_style.css' %}">
+</head>
+<body>
   <h1>МММ КАКОЙ ВКУСНЫЙ ШАШЛЫК...</h1>
   <img src="{% static 'img/cat.jpg' %}" alt="OBEZYANA RJAKA JOPA">
-{% endblock %}
+  {% endblock %}
+</body>
+</html>

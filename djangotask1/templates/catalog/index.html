@@ -1,9 +1,18 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
-<link href="{% static 'css/catalog_style.css' %}" rel="stylesheet">
-{% for item in items %}
-  <h2>{{ item.name }}</h2>
-  <img src="{{ item.get_img.url }}" alt="">
-{% endfor %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Catalog</title>
+  {% extends "base.html" %}
+  {% load static %}
+  {% block content %}
+  <link rel="stylesheet" href="{% static 'css/catalog_style.css' %}">
+</head>
+<body>
+  {% for item in items %}
+    <h2>{{ item.name }}</h2>
+    <img src="{{ item.get_img.url }}" alt="">
+  {% endfor %}
+  {% endblock %}
+</body>
+</html>

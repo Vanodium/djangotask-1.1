@@ -1,14 +1,14 @@
-{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Frontend {% endblock title %}</title>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <meta charset="UTF-8">
+  {% load static %}
+  <link href="{% static 'css/header_style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </head>
-
-<header>
+<body>
+  <header>
     {% block navbar-content %}
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">L4task1</a>
@@ -17,23 +17,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            {% with request.resolver_match.view_name as view_name %}
-                {% if view_name == 'homepage:home' %}
-                <a class="nav-item nav-link active" href="{% url 'homepage:home' %}">На главную</a>
-                <a class="nav-item nav-link" href="{% url 'catalog:item_list' %}">Список товаров</a>
-                <a class="nav-item nav-link" href="{% url 'about:description' %}">О проекте</a>
-                {% elif view_name == 'catalog:item_list' %}
-                <a class="nav-item nav-link" href="{% url 'homepage:home' %}">На главную</a>
-                <a class="nav-item nav-link active" href="{% url 'catalog:item_list' %}">Список товаров</a>
-                <a class="nav-item nav-link" href="{% url 'about:description' %}">О проекте</a>
-                {% else %}
-                <a class="nav-item nav-link" href="{% url 'homepage:home' %}">На главную</a>
-                <a class="nav-item nav-link" href="{% url 'catalog:item_list' %}">Список товаров</a>
-                <a class="nav-item nav-link active" href="{% url 'about:description' %}">О проекте</a>
-                {% endif %}
-            {% endwith %}
+                {% block nav-home %}<a class="nav-item nav-link {% if navbar == 'home' %} active {% endif %}" href="{% url 'homepage:home' %}">На главную</a>{% endblock %}
+                {% block nav-catalog %}<a class="nav-item nav-link {% if navbar == 'catalog' %} active {% endif %}" href="{% url 'catalog:item_list' %}">Список товаров</a>{% endblock %}
+                {% block nav-about %}<a class="nav-item nav-link {% if navbar == 'about' %} active {% endif %}" href="{% url 'about:description' %}">О проекте</a>{% endblock %}
           </div>
         </div>
       </nav>
     {% endblock navbar-content %}
 </header>
+</body>
+</html>
