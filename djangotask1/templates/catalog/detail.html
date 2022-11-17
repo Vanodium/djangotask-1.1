@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Item</title>
+  {% extends "base.html" %}
+  {% load static %}
+  {% block content %}
+  <link rel="stylesheet" href="{% static 'css/catalog_detail_style.css' %}">
+</head>
+<body>
+  <div class="whole_card">
+    <h2>{{ item.name }}</h2>
+    <h4>Тэги: {% for tag in item.tags.all %} {{ tag.name }} {% endfor %}</h4>
+    <img src="{{ item.get_img.url }}" alt="">
+    <p>Описание: {{ item.text }}</p>
+  </div>
+  {% endblock %}
+</body>
+</html>

@@ -22,6 +22,7 @@ class Category(models.Model):
 
 class Item(models.Model):
     is_published = models.BooleanField(default=True)
+    is_on_main = models.BooleanField(default=False)
     name = models.CharField(max_length=150, default='your name')
     text = models.TextField(default='your desc', validators=[validate_desc])
     category = models.ForeignKey(
@@ -34,6 +35,7 @@ class Item(models.Model):
         verbose_name = 'товар'
         verbose_name = 'товары'
         default_related_name = 'items'
+        ordering = ('category__name',)
 
     upload = models.ImageField(upload_to='uploads/%Y/%m', default='nothing')
 

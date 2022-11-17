@@ -1,0 +1,13 @@
+.whole_card {
+    width: 30%;
+    margin: auto;
+    align-content: center;
+}
+
+h2, h4, p {
+    text-align: center;
+}
+
+p {
+    margin-bottom: 10%;
+}
