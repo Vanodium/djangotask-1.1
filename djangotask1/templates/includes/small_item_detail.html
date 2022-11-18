@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{% static 'css/small_item_detail.css' %}">
 <div class="item_preview">
 {% for item in items %}
-  <h2>{{ item.name }}</h2>
+  <a href="{% url 'catalog:item_detail' item.id %}"><h2>{{ item.name }}</h2></a>
   <h4>Категория: {{ item.category.name }} /// Тэги: {% for tag in item.tags.all %} {{ tag.name }} {% endfor %}</h4>
   <p>Описание: {{ item.text|truncatewords:10 }}</p>
 {% endfor %}
