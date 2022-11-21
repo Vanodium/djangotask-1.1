@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Catalog</title>
+</head>
+<body>
   {% extends "base.html" %}
   {% load static %}
   {% block content %}
   <link rel="stylesheet" href="{% static 'css/catalog_style.css' %}">
-</head>
-<body>
   {% include "includes/small_item_detail.html" %}
   {% endblock %}
 </body>

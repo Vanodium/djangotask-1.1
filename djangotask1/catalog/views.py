@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 
 
 def item_list(request):
-    items = Item.objects.filter(is_published=True).order_by('name')
+    items = Item.objects.filter(is_published=True).order_by('category')
     context = {'items': items, 'navbar': 'catalog'}
     return render(request, 'catalog/index.html', context)
 

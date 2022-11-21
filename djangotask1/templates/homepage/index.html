@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Homepage</title>
+</head>
+<body>
   {% extends "base.html" %}
   {% load static %}
   {% block content %}
   <link rel="stylesheet" href="{% static 'css/homepage_style.css' %}">
-</head>
-<body>
   <h1 class="big_title">МММ КАКОЙ ВКУСНЫЙ ШАШЛЫК...</h1>
   {% include "includes/small_item_detail.html" %}
   {% endblock %}
